@@ -60,6 +60,11 @@
 
         document.getElementById('dob').addEventListener('change',CalculateAge);
 
+        function enableButtons(){
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('endButton').disabled = false;
+        }
+
         function Register() {
             // Fetch the entered values from the form.
             let firstName = document.getElementById('firstName').value;
@@ -105,13 +110,9 @@
 
             // Display a confirmation message to the user.
             alert('Player registered successfully!');
+            enableButtons();
         }
 
-        function enableButtons(){
-            document.getElementById('startButton').disabled = false;
-            document.getElementById('endButton').disabled = false;
-        }
-
-        document.getElementById('registerButton').addEventListener('click',enableButtons);
+        //document.getElementById('registerButton').addEventListener('click',enableButtons);
     </script>
 </html>
