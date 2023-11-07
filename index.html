@@ -37,6 +37,7 @@
         // A global storage entity for the registered players.
         let PlayerRegistrationData = [];
 
+        //Getting the elements needed to calculate the age of the user
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -46,6 +47,7 @@
 
         document.getElementById('dob').setAttribute('max', today);
 
+        //Function that will calculate the age of the user and add it to the dedicated field
         function CalculateAge(){
             let dob = new Date(document.getElementById('dob').value);
             let today = new Date();
@@ -65,6 +67,7 @@
             document.getElementById('endButton').disabled = false;
         }
 
+        //Register function
         function Register() {
             // Fetch the entered values from the form.
             let firstName = document.getElementById('firstName').value;
