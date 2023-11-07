@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Player Registration</title> 
+    </head> 
+    <body> 
+        <center>
+            <h1>Player Registration</h1> 
+            <form id="registerForm"> 
+                <label for="firstName">First Name:</label><br> 
+                <input type="text" id="firstName" name="firstName" required minlength="4"><br> 
+                <label for="lastName">Last Name:</label><br> 
+                <input type="text" id="lastName" name="lastName" required minlength="4"><br> 
+                <label for="dob">Date of Birth:</label><br> 
+                <input type="date" id="dob" name="dob" required max="<?php echo date('Y-m-d'); ?>"><br> 
+                <label for="age">Age:</label><br> 
+                <input type="number" id="age" name="age" disabled><br> 
+                <label for="gender">Gender:</label><br> 
+                <select id="gender" name="gender" required> 
+                    <option value="">Select...</option> 
+                    <option value="male">Male</option> 
+                    <option value="female">Female</option> 
+                    <option value="other">Other</option> 
+                </select><br> 
+                <label for="email">Email:</label><br> 
+                <input type="email" id="email" name="email" required pattern=".+@gmail.com$"><br> 
+                <button type="button" id="registerButton" onclick="Register()">Register</button> 
+            </form> <br><br>
+            <button type="button" id="startButton" disabled>Start</button> 
+            <button type="button" id="endButton" disabled>End</button>
+        </center>
+        
+    </body>
+    <script>
+        // A global storage entity for the registered players.
+        let PlayerRegistrationData = [];
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById('dob').setAttribute('max', today);
+
+        function CalculateAge(){
+            let dob = new Date(document.getElementById('dob').value);
+            let today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            let monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            document.getElementById('age').value = age;
+        }
+
+        document.getElementById('dob').addEventListener('change',CalculateAge);
+
+        function Register() {
+            // Fetch the entered values from the form.
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let dob = document.getElementById('dob').value;
+            //let age = document.getElementById('age').value;
+            let gender = document.getElementById('gender').value;
+            let email = document.getElementById('email').value;
+
+            // Perform basic validation checks on the entered values.
+            if (!firstName || !lastName || !dob || !gender || !email) {
+                alert('All fields are required. Please fill all the details.');
+                return;
+            }
+
+            if (age < 8 || age > 12) {
+                alert('Age must be between 8 and 12 inclusive.');
+                return;
+            }
+
+            if (firstName.length < 3 || lastName.length < 3) {
+                alert('First and Last Name must be more than three (3) characters in length.');
+                return;
+            }
+
+            if (!email.endsWith('@gmail.com')) {
+                alert('Email address must be validated to only accept email addresses that ends with “@gmail.com”.');
+                return;
+            }
+
+            // Create an object to store the validated registration details.
+            let playerDetails = {
+                firstName: firstName,
+                lastName: lastName,
+                dob: dob,
+                age: age,
+                gender: gender,
+                email: email
+            };
+
+            // Append the validated player details to the global storage entity.
+            PlayerRegistrationData.push(playerDetails);
+
+            // Display a confirmation message to the user.
+            alert('Player registered successfully!');
+        }
+    </script>
+</html>
