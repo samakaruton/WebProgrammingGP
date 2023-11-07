@@ -106,5 +106,12 @@
             // Display a confirmation message to the user.
             alert('Player registered successfully!');
         }
+
+        function enableButtons(){
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('endButton').disabled = false;
+        }
+
+        document.getElementById('registerButton').addEventListener('click',enableButtons);
     </script>
 </html>
