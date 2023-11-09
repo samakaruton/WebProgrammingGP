@@ -114,6 +114,12 @@
             // Display a confirmation message to the user.
             alert('Player registered successfully!');
             enableButtons();
+
+            document.getElementById('firstname').disabled = true;
+            document.getElementById('lastname').disabled = true;
+            document.getElementById('dob').disabled = true;
+            document.getElementById('gender').disabled = true;
+            document.getElementById('email').disabled = true;
         }
 
         //document.getElementById('registerButton').addEventListener('click',enableButtons);
