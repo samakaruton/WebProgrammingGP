@@ -28,8 +28,12 @@
                 <input type="email" id="email" name="email" required pattern=".+@gmail.com$"><br> 
                 <button type="button" id="registerButton" onclick="Register()">Register</button> 
             </form> <br><br>
-            <button type="button" id="startButton" disabled>Start</button> 
+            <button type="button" id="startButton" disabled onclick="PlayGame()">Start</button> 
             <button type="button" id="endButton" disabled>End</button>
+
+            <br><br>
+
+            <textarea size id="gamearea" style="display:none;" disabled></textarea>
         </center>
         
     </body>
@@ -122,6 +126,7 @@
     <script>
         
 function PlayGame() {
+    document.getElementById("gamearea").style.display = "block";
   let num1 = Math.floor(Math.random() * 9) + 1;
   let num2 = Math.floor(Math.random() * 5) + 1;
 
