@@ -33,7 +33,7 @@
 
             <br><br>
 
-            <textarea size id="gamearea" style="display:none;" disabled></textarea>
+            <textarea size id="gamearea" style="display:none; width: 300px; height: 500px;" disabled></textarea>
         </center>
         
     </body>
@@ -119,6 +119,7 @@
             alert('Player registered successfully!');
             enableButtons();
 
+<<<<<<< Updated upstream
             let fname = document.getElementById('firstName');
             let lname = document.getElementById('lastName');
             let birth = document.getElementById('dob');
@@ -136,19 +137,36 @@
             document.getElementById('registerButton').disabled = true;
 
            
+=======
+>>>>>>> Stashed changes
         }
 
         //document.getElementById('registerButton').addEventListener('click',enableButtons);
 
         // Task 4
         function PlayGame() {
+<<<<<<< Updated upstream
             
+=======
+
+            document.getElementById('firstname').disabled = true;
+            document.getElementById('lastname').disabled = true;
+            //document.getElementById('dob').disabled = true;
+           // document.getElementById('gender').disabled = true;
+            //document.getElementById('email').disabled = true;
+            //document.getElementById('gamearea').style.display = "block";
+
+
+>>>>>>> Stashed changes
             let num1 = Math.floor(Math.random() * 9) + 1;
             let num2 = Math.floor(Math.random() * 5) + 1;
+
 
             document.getElementById("num1").textContent = num1; 
             document.getElementById("num2").textContent = num2;
         }
+
+        //document.getElementById('startButton').addEventListener('click',PlayGame);
 
         // Task 5  
         let startButton = document.getElementById("startButton");
