@@ -119,19 +119,28 @@
             alert('Player registered successfully!');
             enableButtons();
 
+            let fname = document.getElementById('firstName');
+            let lname = document.getElementById('lastName');
+            let birth = document.getElementById('dob');
+            let g = document.getElementById('gender');
+            let em = document.getElementById('email');
+
+            if(fname.value && lname.value && birth.value && g.value && em.value){
+                fname.disabled = true;
+                lname.disabled = true;
+                birth.disabled = true;
+                g.disabled = true;
+                em.disabled = true;
+            }
+
+            document.getElementById('registerButton').disabled = true;
+
         }
 
         //document.getElementById('registerButton').addEventListener('click',enableButtons);
 
         // Task 4
         function PlayGame() {
-
-            document.getElementById('firstname').disabled = true;
-            document.getElementById('lastname').disabled = true;
-            //document.getElementById('dob').disabled = true;
-           // document.getElementById('gender').disabled = true;
-            //document.getElementById('email').disabled = true;
-            //document.getElementById('gamearea').style.display = "block";
 
 
             let num1 = Math.floor(Math.random() * 9) + 1;
@@ -142,7 +151,7 @@
             document.getElementById("num2").textContent = num2;
         }
 
-        //document.getElementById('startButton').addEventListener('click',PlayGame);
+       
 
         // Task 5  
         let startButton = document.getElementById("startButton");
