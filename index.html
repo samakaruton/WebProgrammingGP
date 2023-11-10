@@ -32,11 +32,19 @@
             <button type="button" id="endButton" disabled>End</button>
 
             <br><br>
+            
+            <div id="gamearea" style="display:none; width: 60%; height: 1200px; border: 2px solid #000;" disabled>
+                <p>Calculate:</p>
+                <span id="num1"></span> x <span id="num2"></span> = <input type="number" id="answerInput" min="0" required>
+                <button id="acceptButton" onclick="CheckAnswer()">Submit</button>
+                <p id="result"></p>
+                <button id="nextButton" onclick="PlayGame()">Next</button>
+            </div>
+            
 
-            <textarea size id="gamearea" style="display:none; width: 300px; height: 500px;" disabled></textarea>
             <br><br>
-            <button type="button" id="accept" disabled style="display:none;">Accept</button>
-            <button type="button" id="next" disabled style="display:none;">Nextt</button>
+            <button type="button" id="accept" disabled style="display:none;">Accept</button><br>
+            <button type="button" id="next" disabled style="display:none;">Next</button>
             
         </center>
         
@@ -101,7 +109,7 @@
                 return;
             }
 
-            if (!email.endsWith('@gmail.com' && !email.endsWith('@GMAIL.COM'))) {
+            if (!email.endsWith('@gmail.com' || !email.endsWith('@GMAIL.COM'))) {
                 alert('Email address must be validated to only accept email addresses that ends with “@gmail.com”.');
                 return;
             }
@@ -195,6 +203,8 @@
                 response: response,
                 correctness: correctness
             });
+
+           
         }
     </script>
     
