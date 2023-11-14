@@ -4,7 +4,12 @@
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>Player Registration</title> 
-    </head> 
+    </head>
+    <style>
+        tr, th, td{
+            padding: 14px;
+        }
+    </style> 
     <body> 
         <center>
             <h1>Player Registration</h1> 
@@ -32,14 +37,100 @@
             <button type="button" id="endButton" disabled>End</button>
 
             <br><br>
-            
+   
             <div id="gamearea" style="display:none; width: 60%; height: 1200px; border: 2px solid #000;" disabled>
                 <p>Calculate:</p>
                 <span id="num1"></span> x <span id="num2"></span> = <input type="number" id="answerInput" min="0" required>
-                <button id="acceptButton" onclick="CheckAnswer()">Submit</button>
+                <!--Task 7-->
+                <button id="acceptButton" onclick="CheckAnswer()">CheckAnswer</button>
                 <p id="result"></p>
+                <!--Task 8-->
                 <button id="nextButton" onclick="PlayGame()">Next</button>
+                <!--Task 9-->
+                <div id="stats" style="margin-top: 20px;">
+                    <table id="showpercentage" style="border: 1px solid;">
+                        <caption>Scoreboard</caption>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Current Score</th>
+                            <th>Correct Answers</th>
+                            <th>Incorrect Answers</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+
             
 
             <br><br>
