@@ -217,6 +217,7 @@
 
             // Append the validated player details to the global storage entity.
             PlayerRegistrationData.push(playerDetails);
+            localStorage.setItem("PlayerRegistrationData",JSON.stringify(PlayerRegistrationData));
 
             // Display a confirmation message to the user.
             alert('Player registered successfully!');
