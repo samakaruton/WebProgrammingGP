@@ -238,6 +238,7 @@
             }
 
             document.getElementById('registerButton').disabled = true;
+            displayAllPlayers();
 
         }
 
@@ -298,6 +299,33 @@
 
            
         }
+        function displayAllPlayers() {
+    // Get the element where players will be displayed
+    var displayArea = document.getElementById('showallplayers');
+
+    // Clear any existing content
+    displayArea.innerHTML = '';
+
+    // Check if there are any players to display
+    if (PlayerRegistrationData && PlayerRegistrationData.length > 0) {
+        // Create a list or table element to hold player details
+        var list = document.createElement('ul');
+
+        // Iterate over each player and create an item for them
+        PlayerRegistrationData.forEach(function(player, index) {
+            var listItem = document.createElement('li');
+            listItem.textContent = (index + 1) + ". " + player.firstName + " " + player.lastName + " - " + player.email;
+            list.appendChild(listItem);
+        });
+
+        // Append the list to the display area
+        displayArea.appendChild(list);
+    } else {
+        // Display a message if no players are registered
+        displayArea.textContent = 'No players registered yet.';
+    }
+}
+
     </script>
     
 </html>
