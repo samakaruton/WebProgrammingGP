@@ -32,11 +32,16 @@
                 <label for="email">Email:</label><br> 
                 <input type="email" id="email" name="email" required pattern=".+@gmail.com$"><br> 
                 <button type="button" id="registerButton" onclick="Register()">Register</button> 
+                <button type="button" id="endButtonForm" onclick="endGame()">End</button>
             </form> <br><br>
             <button type="button" id="startButton" disabled onclick="PlayGame()">Start</button> 
             <button type="button" id="endButton" disabled>End</button>
 
             <br><br>
+            <!--Task -->
+            <div id="showallplayers" style="margin-top: 20px; border: 1px solid #000; padding: 10px;">
+                <h2>All Registered Players</h2>
+            </div>
    
             <div id="gamearea" style="display:none; width: 60%; height: 1200px; border: 2px solid #000;" disabled>
                 <p>Calculate:</p>
@@ -238,7 +243,7 @@
             }
 
             document.getElementById('registerButton').disabled = true;
-            //displayAllPlayers();
+            displayAllPlayers();
 
         }
 
@@ -299,7 +304,68 @@
 
            
         }
-        function displayAllPlayers() {
+    function findPercentageScore() {
+    let totalQuestions = 0;
+    let correctAnswers = 0;
+    let playerName = PlayerRegistrationData.length > 0 ? PlayerRegistrationData[0].firstName + " " + PlayerRegistrationData[0].lastName : "";
+
+    // Counting total and correct questions
+    PlayerRegistrationData.forEach(entry => {
+        if (entry.correctness) {
+            totalQuestions++;
+            if (entry.correctness === "Correct!") {
+                correctAnswers++;
+            }
+        }
+    });
+
+    // Calculating percentage score
+    let percentageScore = totalQuestions > 0 ? (correctAnswers / totalQuestions) * 100 : 0;
+
+    // Getting current date
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    let currentDate = yyyy + '-' + mm + '-' + dd;
+
+    // Clearing existing data
+    let table = document.getElementById('showpercentage');
+    table.innerHTML = ''; // This clears the table
+
+    // Creating and appending new rows
+    let newRow = table.insertRow();
+    newRow.insertCell(0).innerText = playerName;
+    newRow.insertCell(1).innerText = currentDate;
+    newRow.insertCell(2).innerText = totalQuestions;
+    newRow.insertCell(3).innerText = correctAnswers;
+    newRow.insertCell(4).innerText = percentageScore.toFixed(2) + "%";
+}
+function endGame() {
+    // Call findPercentageScore function
+    findPercentageScore();
+
+    // Clear the form and enable its inputs
+    document.getElementById('registerForm').reset();
+    document.getElementById('firstName').disabled = false;
+    document.getElementById('lastName').disabled = false;
+    document.getElementById('dob').disabled = false;
+    document.getElementById('gender').disabled = false;
+    document.getElementById('email').disabled = false;
+
+    // Disable all buttons except the Register button
+    document.getElementById('registerButton').disabled = false;
+    document.getElementById('startButton').disabled = true;
+    document.getElementById('endButtonForm').disabled = true;
+
+    // Disable the Play and Results area
+    document.getElementById('gamearea').style.display = 'none';
+    displayAllPlayers();
+}
+   
+
+
+function displayAllPlayers() {
     // Get the element where players will be displayed
     var displayArea = document.getElementById('showallplayers');
 
@@ -325,7 +391,6 @@
         displayArea.textContent = 'No players registered yet.';
     }
 }
-
     </script>
     
 </html>
