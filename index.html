@@ -9,6 +9,64 @@
         tr, th, td{
             padding: 14px;
         }
+
+        body {
+            font-family: 'Arial Rounded', sans-serif;
+            background-color: #f0f8ff; /* Soft blue background */
+            color: #333; /* Darker text for readability */
+        }
+
+        h1, h2 {
+            color: #4a86e8; /* Soft blue for headings */
+            text-align: center;
+        }
+
+        button {
+            background-color: #ff69b4; /* Soft pink */
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff85c1; /* Slightly lighter pink on hover */
+        }
+
+        input, select {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: calc(100% - 22px); /* Full width with padding */
+        }
+
+        .centered-content {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            border: 2px solid #4a86e8;
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #e6e6fa; /* Light purple for list items */
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
     </style> 
     <body> 
         <center>
@@ -189,7 +247,7 @@
             let firstName = document.getElementById('firstName').value;
             let lastName = document.getElementById('lastName').value;
             let dob = document.getElementById('dob').value;
-            //let age = document.getElementById('age').value;
+            let age = document.getElementById('age').value;
             let gender = document.getElementById('gender').value;
             let email = document.getElementById('email').value;
 
