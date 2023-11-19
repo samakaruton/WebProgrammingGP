@@ -89,7 +89,6 @@
                     <option value="">Select...</option> 
                     <option value="male">Male</option> 
                     <option value="female">Female</option> 
-                    <option value="other">Other</option> 
                 </select><br> 
                 <label for="email">Email:</label><br> 
                 <input type="email" id="email" name="email" required pattern=".+@gmail.com$"><br> 
@@ -565,7 +564,7 @@ function displayAllPlayers() {
             // Calculate percentages
             genderFrequency.malePercentage = (genderFrequency.male / totalPersons) * 100;
             genderFrequency.femalePercentage = (genderFrequency.female / totalPersons) * 100;
-            genderFrequency.otherPercentage = (genderFrequency.other / totalPersons) * 100;
+            
 
             return genderFrequency;
         }
