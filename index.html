@@ -98,7 +98,7 @@
             </form> <br><br>
             <button type="button" id="startButton" disabled onclick="PlayGame()">Start</button> 
             <button type="button" id="endButton" disabled>End</button>
-
+            <button type="button" id="percentageScoreButton">PercentageScore</button>
             <br><br>
             <!--Task -->
             <div id="showallplayers" style="margin-top: 20px; border: 1px solid #000; padding: 10px;">
@@ -706,6 +706,10 @@ function displayAllPlayers() {
             // Call the showCharts() function initially
             showCharts();
         });
+        document.getElementById('percentageScoreButton').addEventListener('click', function() {
+    let currentUserEmail = document.getElementById('email').value; 
+    findPercentageScore(currentUserEmail);
+});
 
     </script>
     
