@@ -216,10 +216,10 @@ Ysande Allen 2202262-->
         
     </body>
     <script>
-        // A global storage entity for the registered players.
+        // A global storage entity for the registered players. - Carlton Bucknor
         let PlayerRegistrationData = [];
 
-        //Getting the elements needed to calculate the age of the user
+        //Getting the elements needed to calculate the age of the user - Carlton Bucknor
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -229,7 +229,7 @@ Ysande Allen 2202262-->
 
         document.getElementById('dob').setAttribute('max', today);
 
-        //Function that will calculate the age of the user and add it to the dedicated field
+        //Function that will calculate the age of the user and add it to the dedicated field - Carlton Bucknor
         function CalculateAge(){
             let dob = new Date(document.getElementById('dob').value);
             let today = new Date();
@@ -249,7 +249,7 @@ Ysande Allen 2202262-->
             document.getElementById('endButton').disabled = false;
         }
 
-        //Register function
+        //Register function - Carlton Bucknor
         function Register() {
             // Fetch the entered values from the form.
             let firstName = document.getElementById('firstName').value;
