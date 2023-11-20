@@ -210,9 +210,6 @@ Ysande Allen 2202262-->
             
         </center>
 
-            <!--Task 15  -  Gabrielle Flash-->
-            <div id="genderChart" class="chart-container"></div>
-            <div id="percentageChart" class="chart-container"></div>
         
     </body>
     <script>
@@ -347,6 +344,64 @@ Ysande Allen 2202262-->
         document.getElementById("nextButton").disabled = false;
         });
 
+
+        //Task 13 Gabrielle Flash
+        function showAllStats() {
+        // Get the element where player stats will be displayed
+        var displayArea = document.getElementById('showallplayers');
+
+        // Clear the existing content
+        displayArea.innerHTML = '';
+
+        // Check if there are any players to display
+        if (PlayerRegistrationData && PlayerRegistrationData.length > 0) {
+            // Iterate over each player and create a formatted display
+            PlayerRegistrationData.forEach(function(player, index) {
+                var playerDetails = `
+                    ${index + 1}. 
+                    Name: ${player.firstName} ${player.lastName}, 
+                    Age: ${player.age}, 
+                    Email: ${player.email},
+                    Questions and Answers:
+                `;
+
+                // Add questions and answers
+                player.responses.forEach(function(response, idx) {
+                    playerDetails += `
+                        ${idx + 1}. 
+                        Question: ${response.equation}, 
+                        Answer: ${response.response}, 
+                        Status: ${response.correctness}
+                    `;
+                    if (idx < player.responses.length - 1) {
+                        playerDetails += ', ';
+                    }
+                });
+
+                // Add percentage score
+                playerDetails += `, Percentage Score: ${calculatePercentageScore(player.responses)}%\n\n`;
+
+                // Append the formatted details to the display area
+                displayArea.innerText += playerDetails;
+            });
+        } else {
+            // Display a message if no players are registered
+            displayArea.textContent = 'No players registered yet.';
+        }
+
+    }
+        
+        // Function to calculate percentage score based on correct answers
+        function calculatePercentageScore(responses) {
+            if (responses.length === 0) {
+                return 0;
+            }
+
+            let correctAnswers = responses.filter(response => response.correctness === 'Correct!').length;
+            return ((correctAnswers / responses.length) * 100).toFixed(2);
+        }
+
+        
         // Task 6 Rogere Cole
         function CheckAnswer() {
             let num1 = parseInt(document.getElementById("num1").textContent);
